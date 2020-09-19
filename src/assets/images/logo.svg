@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="83" height="71.641" viewBox="0 0 83 71.641">
+  <g id="Group_1779" data-name="Group 1779" transform="translate(-131 -62.359)">
+    <g id="online-learning" transform="translate(129 52)">
+      <path id="Path_383" data-name="Path 383" d="M384,146.012h5.039V161.1H384Z" transform="translate(-319.5 -121.487)" fill="#fdbf00"/>
+      <path id="Path_384" data-name="Path 384" d="M126.84,75.665v.454l-16.651,7.263v2.387H78.151V83.382L61.5,76.119v-.454l32.67-14Z" transform="translate(-51.17 -51.311)" fill="#445ea0"/>
+      <path id="Path_385" data-name="Path 385" d="M288.67,75.665v.454l-16.651,7.263v2.387H256V61.67Z" transform="translate(-213 -51.311)" fill="#224070"/>
+      <path id="Path_386" data-name="Path 386" d="M160.63,190.93h32.038v13.631H160.63Z" transform="translate(-133.649 -158.86)" fill="#2a4977"/>
+      <path id="Path_387" data-name="Path 387" d="M256,190.93h16.019v13.631H256Z" transform="translate(-213 -158.86)" fill="#15325b"/>
+    </g>
+    <text id="e-hub" transform="translate(131 125)" fill="#15325b" font-size="26" font-family="Poppins-Medium, Poppins" font-weight="500"><tspan x="0" y="0">e-hub</tspan></text>
+  </g>
+</svg>

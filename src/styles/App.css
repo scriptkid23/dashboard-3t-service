@@ -1,0 +1,64 @@
+.ttt-login-bg{
+   background-image: url('../assets/images/background.svg');
+   width: 100%; 
+   height: auto;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-clip: content-box;
+
+}
+.ttt-login-bg.col-5{
+    padding: 0;
+}
+.ttt-login-picture{
+    width: 700px;
+    height: 500px;
+    padding:0;
+    margin: 0;
+    position: absolute;
+    right: 20px;
+}
+.ttt-login-logo{
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    margin: 30px;
+    
+}
+.ttt-login-form-wrapper{
+    position: relative;
+}
+button.btn-customize {
+    background-color: #FFB94A;
+    border-radius:1.875rem;
+    width: 150px;
+    height: 50px;
+    padding :0;
+    border: 1px solid transparent;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+button.btn-outline {
+    background-color: white;
+    border:  2px solid #FFB94A;
+    color : #FFB94A;
+  
+}
+.ttt-pointer{
+    cursor: pointer;
+}
+input[type=email].input-customize,
+input[type=password].input-customize{
+    width: 100%;
+    height: 3.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    outline: 0;
+}
+input[type=email].input-customize:focus,
+input[type=password].input-customize:focus{
+    box-shadow: none;
+    border-left : 6px solid #FFB94A;
+}
