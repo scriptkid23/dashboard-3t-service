@@ -4,7 +4,7 @@ import {Container,Row,Col,Form,Button} from 'react-bootstrap'
 import image from '../../assets/index'
 import {FontPoppins} from '../../styles/common/index'
 import {Slide} from 'react-awesome-reveal'
-export default function Signup() {
+export default function PasswordRecovery() {
 
   return (
      <Container fluid>
@@ -26,7 +26,6 @@ export default function Signup() {
                                     <img src={image.svg.rectangle} alt=" "/>
                                 </Slide>
                                 <Slide>
-                                  
                                     <Form.Group controlId="formBasicEmail" className="mt-3">
                                         <Form.Control type="email" placeholder="Enter Email" className="input-customize"/>
                                     </Form.Group>
@@ -34,7 +33,7 @@ export default function Signup() {
                                     <Form.Group className="d-flex justify-content-end">
                                         <Button 
                                         className="btn-customize mr-2" 
-                                        data-micron="fade">
+                                        data-micron="bounce">
                                             Send
                                         </Button>
                                     </Form.Group>
@@ -42,9 +41,7 @@ export default function Signup() {
                             </Form>
                         </Col>
                         
-                     </Container>
-                   
-                       
+                     </Container>       
              </Col>
              <Col xs={5} className="ttt-login-bg d-flex justify-content-center align-items-center">
                 <img 
@@ -53,8 +50,7 @@ export default function Signup() {
                     className="ttt-signup-picture"
                     />
              
-             </Col>
-            
+             </Col>  
          </Row>
      </Container>
     
