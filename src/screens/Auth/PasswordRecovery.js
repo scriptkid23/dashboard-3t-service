@@ -4,8 +4,9 @@ import {Container,Row,Col,Form,Button} from 'react-bootstrap'
 import image from '../../assets/index'
 import {FontPoppins} from '../../styles/common/index'
 import {Slide} from 'react-awesome-reveal'
+import { useHistory } from "react-router-dom";
 export default function PasswordRecovery() {
-
+  const history = useHistory();
   return (
      <Container fluid>
          <Row className="vh-100">
@@ -15,7 +16,7 @@ export default function PasswordRecovery() {
                          <Col xs={7}>
                             <Form className="mt-5">
                                 <Slide cascade>
-                                    <div className="ttt-pointer">
+                                    <div className="ttt-pointer" onClick={() => history.goBack()}>
                                         <i className="fas fa-arrow-left signup-back"></i>
                                         <span className="signup-back">Back</span>
                                     </div>

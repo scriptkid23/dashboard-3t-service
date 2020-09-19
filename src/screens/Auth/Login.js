@@ -4,7 +4,9 @@ import {Container,Row,Col,Form,Button} from 'react-bootstrap'
 import image from '../../assets/index'
 import {FontPoppins} from '../../styles/common/index'
 import {Slide,Fade} from 'react-awesome-reveal'
+import { useHistory } from "react-router-dom";
 export default function Login() {
+  const history = useHistory();
 
   return (
      <Container fluid>
@@ -31,10 +33,14 @@ export default function Login() {
                                         <Form.Control type="password" placeholder="Enter password" className="input-customize"/>
                                     </Form.Group>
                                     <Form.Group className="d-flex justify-content-end">
-                                        <FontPoppins color="#224070" className="ttt-pointer">Forgot Password ?</FontPoppins> 
+                                        <FontPoppins 
+                                        onClick={() => history.push('/auth/password-recovery')}
+                                        color="#224070" 
+                                        className="ttt-pointer">Forgot Password ?</FontPoppins> 
                                     </Form.Group>   
                                     <Form.Group className="d-flex justify-content-end">
                                         <Button 
+                                        onClick={() => history.push('/auth/signup')}
                                         className="btn-customize btn-outline mr-2" 
                                         data-micron="fade">
                                             Sign Up
