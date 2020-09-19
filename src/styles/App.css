@@ -49,7 +49,8 @@ button.btn-outline {
     cursor: pointer;
 }
 input[type=email].input-customize,
-input[type=password].input-customize{
+input[type=password].input-customize,
+input[type=text].input-customize{
     width: 100%;
     height: 3.5rem;
     font-family: 'Poppins', sans-serif;
@@ -58,7 +59,21 @@ input[type=password].input-customize{
     outline: 0;
 }
 input[type=email].input-customize:focus,
-input[type=password].input-customize:focus{
+input[type=password].input-customize:focus,
+input[type=text].input-customize:focus{
     box-shadow: none;
     border-left : 6px solid #FFB94A;
+}
+.signup-back{
+    font-weight: bold;
+    margin-left: 6px;
+    color : #FFB94A;
+}
+.ttt-signup-picture{
+    width: 500px;
+    height: 500px;
+    padding:0;
+    margin: 0;
+    position: absolute;
+    right: 8rem;
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 import { HashRouter, Route, Switch, Redirect,BrowserRouter } from "react-router-dom";
 import './styles/App.css'
-import Login from './screens/Auth/Login'
+import ForgotPassword from './screens/Auth/ForgotPassword'
 function App() {
   return (
     <div>
-      <Login/>
+      <ForgotPassword/>
     </div>
   );
 }
