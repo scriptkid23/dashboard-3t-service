@@ -15,7 +15,7 @@ export default function PasswordRecovery() {
                      <Container>
                          <Col xs={7}>
                             <Form className="mt-5">
-                                <Slide cascade>
+                                <Slide>
                                     <div className="ttt-pointer" onClick={() => history.goBack()}>
                                         <i className="fas fa-arrow-left signup-back"></i>
                                         <span className="signup-back">Back</span>
@@ -24,7 +24,10 @@ export default function PasswordRecovery() {
                                         <FontPoppins size={36} className="font-weight-bold">Password Recovery</FontPoppins>
                                         <FontPoppins size={17} className="m-0">Enter Email Receive your password </FontPoppins>
                                     </div>
-                                    <img src={image.svg.rectangle} alt=" "/>
+                                    <Slide>
+                                        <img src={image.svg.rectangle} alt=" "/>
+                                    </Slide>
+                                    
                                 </Slide>
                                 <Slide>
                                     <Form.Group controlId="formBasicEmail" className="mt-3">
