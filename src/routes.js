@@ -1,7 +1,7 @@
 import PasswordRecovery from './screens/Auth/PasswordRecovery'
 import Login from './screens/Auth/Login';
 import Signup from './screens/Auth/Signup';
-
+import ChatRoom from './screens/Dashboard/ChatRoom'
 
 const Routers = [
     // ======================= AUTH LAYOUT ====================== //
@@ -25,6 +25,13 @@ const Routers = [
         component: PasswordRecovery,
         layout: "/auth",
         require : false,
+    },
+    {
+        path: "/chat-room",
+        name: "Chat Room",
+        component: ChatRoom,
+        layout: "/dashboard",
+        require : true,
     },
   
 

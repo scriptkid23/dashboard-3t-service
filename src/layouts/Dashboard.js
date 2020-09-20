@@ -40,7 +40,7 @@ export default class Dashboard extends Component {
                   </div>     
                   <div id="dashboard-content">
                   <Navbar/>
-                  
+                    {this.getRoutes(Routers)}
                   </div>
                </Container>
             </div>
