@@ -70,8 +70,8 @@ input[type=text].input-customize:focus{
     color : #FFB94A;
 }
 .ttt-signup-picture{
-    width: 500px;
-    height: 500px;
+    width: 31.25rem;
+    height: 31.25rem;
     padding:0;
     margin: 0;
     position: absolute;
@@ -82,19 +82,93 @@ input[type=text].input-customize:focus{
     left: 1.875rem;
 }
 #sidebar {
-    min-width: 56px;
-    max-width: 56px;
+    min-width:3.5rem;
+    max-width: 3.5rem;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     /* top layer */
-   
+    z-index: 9999;
+    border-top-right-radius: 26px;
+    border-bottom-right-radius: 26px;
+    background-color: white;
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.75);
 }
 #dashboard-content {
-    width: calc(100% - 56px);
+    width: calc(100% - 3.5rem);
     min-height: 100vh;
     transition: all 0.3s;
     top: 0;
     right: 0;
+    
+}
+.sidebar-ul-customize{
+    list-style-type: none;
+    padding: 0;
+    display: inline;
+
+}
+.sidebar-ul-customize li{
+  
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: auto;
+    padding: 15px;
+    transition: .15s ease-in-out;
+}
+.sidebar-ul-customize li:hover{
+    background-color:#f8f9fa;
+    border-left: 3px solid #FFB94A;
+    color: #00005c;
+   
+}
+.sidebar-ul-customize li.active{
+    background-color:#f8f9fa;
+    border-left: 3px solid #FFB94A;
+    color: #00005c;
+}
+.sidebar-ul-customize li i{
+   font-size: 1.5rem;
+}
+.avatar {
+    position: relative;
+    top: 1px;
+    vertical-align: middle;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-style: normal;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.avatar.img-thumbnail {
+    padding: 4px;
+    max-width: none;
+}
+.avatar-32 {
+    max-height: 32px;
+    width: 32px;
+    height: 100%;
+    font-size: 80px;
+    line-height: 32px;
+}
+.customize-badge{
+    font-size: 19px;
+    color : #2323dfd7;
+    
+}
+.customize-badge span{
+    color:#e4f9ff;
+    border-radius: 100%;
+    background-color: #fa1616;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    padding: 3px 0 0 0;
+    position: relative;
+    top: -10px;
+    left: -5px;
 }
