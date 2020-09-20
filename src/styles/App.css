@@ -77,3 +77,24 @@ input[type=text].input-customize:focus{
     position: absolute;
     right: 8rem;
 }
+.ttt-auth-content{
+    position: relative;
+    left: 1.875rem;
+}
+#sidebar {
+    min-width: 56px;
+    max-width: 56px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* top layer */
+   
+}
+#dashboard-content {
+    width: calc(100% - 56px);
+    min-height: 100vh;
+    transition: all 0.3s;
+    top: 0;
+    right: 0;
+}

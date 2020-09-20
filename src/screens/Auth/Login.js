@@ -11,7 +11,7 @@ export default function Login() {
   return (
      <Container fluid>
          <Row className="vh-100">
-            <Col xs={7} className="ttt-login-content d-flex align-items-center">          
+            <Col xs={7} className="ttt-auth-content d-flex align-items-center">          
                      <img src={image.svg.logo} alt="" className="ttt-login-logo"/>
                      <Container>
                          <Col xs={7}>
@@ -37,7 +37,10 @@ export default function Login() {
                                         onClick={() => history.push('/auth/password-recovery')}
                                         color="#224070" 
                                         className="ttt-pointer">Forgot Password ?</FontPoppins> 
+                                      
                                     </Form.Group>   
+                                    
+                                    
                                     <Form.Group className="d-flex justify-content-end">
                                         <Button 
                                         onClick={() => history.push('/auth/signup')}
@@ -52,11 +55,13 @@ export default function Login() {
                                     </Form.Group>
                                 </Slide>
                             </Form>
+                            
                         </Col>
+                     
                         
                      </Container>
+                    
                    
-                       
              </Col>
            
 
@@ -71,6 +76,7 @@ export default function Login() {
              </Col>
             
          </Row>
+      
      </Container>
     
   );
