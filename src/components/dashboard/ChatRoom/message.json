@@ -1,0 +1,26 @@
+[
+    {
+        "own" : "John",
+        "avatar" : "https://www.flaticon.com/svg/static/icons/svg/3468/3468075.svg",
+        "message" :["hello","what"," demo"],
+        "seenBy" : [""]
+    },
+    {
+        "own" : "Peter",
+        "avatar" : "https://www.flaticon.com/svg/static/icons/svg/3408/3408634.svg",
+        "message" :["hello","what"," demo"],
+        "seenBy" : [""]
+    },
+    {
+        "own" : "John",
+        "avatar" : "https://www.flaticon.com/svg/static/icons/svg/3468/3468075.svg",
+        "message" :["what is your name"],
+        "seenBy" : [""]
+    },
+    {
+        "own" : "Peter",
+        "avatar" : "https://www.flaticon.com/svg/static/icons/svg/3408/3408634.svg",
+        "message" :["hello","what"," demo"],
+        "seenBy" : [""]
+    }
+]

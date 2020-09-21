@@ -207,7 +207,8 @@ input[type=text].form-control-customize:focus{
     border-radius: 12px;
     background-color: rgba(0,0,0,.03);
     flex: none !important;
-    width: 50%;
+    max-width: 350px;
+    word-wrap: break-word;
     position: relative;
     top : -10px;
 }
@@ -234,8 +235,6 @@ input[type=text].form-control-customize:focus{
 	background-color: #b1b1b1;
 }
 
-/* sdfsdffffffffffffffffffffffffffffffffffffffffffffff */
-
 #end-of-chat {
   padding-bottom: 50px;
   padding-top: 30px;
@@ -248,7 +247,8 @@ input[type=text].form-control-customize:focus{
 
 .is-user {
   background-color: #1546DC;
-
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1)
 }
 
 .is-other {
