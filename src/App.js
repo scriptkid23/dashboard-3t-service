@@ -10,7 +10,7 @@ function App() {
       <Switch>
         <Route path="/auth" render={props => <Auth {...props} />} />
         <Route path="/dashboard" render={props => <Dashboard {...props}/>} />
-        {/* <Redirect from="/"  to="/dashboard/home" /> */}
+        <Redirect from="/"  to="/dashboard" />
       </Switch>
     </BrowserRouter>
   );

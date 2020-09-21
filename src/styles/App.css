@@ -208,9 +208,11 @@ input[type=text].form-control-customize:focus{
     background-color: rgba(0,0,0,.03);
     flex: none !important;
     width: 50%;
+    position: relative;
+    top : -10px;
 }
 .card-body-customize{
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 #style-2::-webkit-scrollbar-track
 {
@@ -230,4 +232,31 @@ input[type=text].form-control-customize:focus{
 	border-radius: 10px;
 	
 	background-color: #b1b1b1;
+}
+
+/* sdfsdffffffffffffffffffffffffffffffffffffffffffffff */
+
+#end-of-chat {
+  padding-bottom: 50px;
+  padding-top: 30px;
+  padding-left: 20px;
+}
+
+
+
+
+
+.is-user {
+  background-color: #1546DC;
+
+}
+
+.is-other {
+  background-color: #FFF;
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1)
+}
+
+.chat-box-bottom {
+  margin-top: auto;
 }
