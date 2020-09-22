@@ -9,13 +9,19 @@ export default () => {
   const [state,dispatch] = React.useReducer(chatReducer,defaultState)
   const elScroll = React.useRef(null);
 
+  const scrollToBottom = () => {
+    elScroll.current.scrollTop = elScroll.current.scrollHeight;
+    elScroll.current.scrollIntoView({ behavior: "smooth" })
+  }
+  React.useEffect(() => {
+   scrollToBottom(); 
+  })
   React.useEffect(() => {
     dispatch({
       type : "GET_STORE",
       messages : MessageDemo
     })
-    scrollToBottom();
-  },[])
+  },[state.message])
   const typing = (e) => {
       dispatch({
         type : "SET_MESSAGE",
@@ -55,16 +61,16 @@ export default () => {
       type : "SEND_MESSAGE",
       messages : exportMessage(state.messages,state.message)
     })
-    scrollToBottom()
     event.preventDefault();
-    event.stopPropagation();
-
   }
-  const scrollToBottom = () =>  window.scrollTo({
+
   
-      top : document.documentElement.scrollHeight,
-      behavior:"smooth"   
-})
+//   const scrollToBottom = () =>  window.scrollTo({
+  
+//       top : document.documentElement.scrollHeight,
+//       behavior:"smooth"   
+// })
+
  
   return (
     <CardCustomize height={height}>
@@ -77,7 +83,7 @@ export default () => {
               <FontMontserrat size={15} className="font-weight-bold mt-1 mb-0 ml-1">Pea Boy</FontMontserrat>
           </Media>
       </Card.Header>
-      <Card.Body className="card-body-customize" id="style-2" ref={elScroll}>
+      <Card.Body className="card-body-customize" id="style-2" ref={ elScroll}>
         <MessageList
           messages={state.messages}
         />

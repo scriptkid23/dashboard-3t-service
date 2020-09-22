@@ -6,10 +6,10 @@ export default function Sidebar(){
             <nav id="sidebar" className="p-0 d-flex justify-content-center align-items-center">
              <ul className="sidebar-ul-customize">
                 
-                    <li className="ttt-pointer"><i class="lni lni-home"></i></li>
-                    <li className="ttt-pointer"><i class="lni lni-direction-alt"></i></li>
-                    <li className="ttt-pointer"><i class="lni lni-bookmark"></i></li>
-                    <li className="ttt-pointer"><i class="lni lni-cog"></i></li>
+                    <li className="ttt-pointer"><i className="lni lni-home"></i></li>
+                    <li className="ttt-pointer"><i className="lni lni-direction-alt"></i></li>
+                    <li className="ttt-pointer"><i className="lni lni-bookmark"></i></li>
+                    <li className="ttt-pointer"><i className="lni lni-cog"></i></li>
                 
                  
                 

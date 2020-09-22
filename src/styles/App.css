@@ -213,7 +213,9 @@ input[type=text].form-control-customize:focus{
     top : -10px;
 }
 .card-body-customize{
-    overflow-y: auto;
+    flex-grow: 1;
+    overflow-y: scroll;
+    position: relative;
 }
 #style-2::-webkit-scrollbar-track
 {
@@ -231,19 +233,8 @@ input[type=text].form-control-customize:focus{
 #style-2::-webkit-scrollbar-thumb
 {
 	border-radius: 10px;
-	
 	background-color: #b1b1b1;
 }
-
-#end-of-chat {
-  padding-bottom: 50px;
-  padding-top: 30px;
-  padding-left: 20px;
-}
-
-
-
-
 
 .is-user {
   background-color: #1546DC;
