@@ -33,9 +33,7 @@ export default class Dashboard extends Component {
              
                {/* {this.getRoutes(Routers)} */}
                <Container fluid className="d-flex">
-                 
                   <div className="flex-grow-1">
-                    
                     <Sidebar/>
                   </div>     
                   <div id="dashboard-content">

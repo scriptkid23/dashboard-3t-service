@@ -10,6 +10,7 @@ export default ({messages}) => {
                         avatar  = {value.avatar}
                         isOwn   = {own  === value.own ? true : false}
                         message = {value.message}
+                        own     = {value.own}
                     />
                 )
             })}

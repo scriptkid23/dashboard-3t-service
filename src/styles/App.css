@@ -251,3 +251,7 @@ input[type=text].form-control-customize:focus{
 .chat-box-bottom {
   margin-top: auto;
 }
+.message-own {
+    position: relative;
+    top: 10px;
+}

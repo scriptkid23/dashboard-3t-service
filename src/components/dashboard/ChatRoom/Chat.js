@@ -83,7 +83,7 @@ export default () => {
               <FontMontserrat size={15} className="font-weight-bold mt-1 mb-0 ml-1">Pea Boy</FontMontserrat>
           </Media>
       </Card.Header>
-      <Card.Body className="card-body-customize" id="style-2" ref={ elScroll}>
+      <Card.Body className="card-body-customize" id="style-2" ref={elScroll}>
         <MessageList
           messages={state.messages}
         />
