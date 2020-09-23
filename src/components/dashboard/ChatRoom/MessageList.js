@@ -1,7 +1,7 @@
 import React from 'react';
 import Message  from './Message'
-export default ({messages}) => {
-    const own = "John";
+export default ({messages,own}) => {
+    
     return(
         <React.Fragment>
             {messages.map((value, index) => {

@@ -1,4 +1,4 @@
   
 import Chat from './Chat';
-
-export default Chat;
+import ChatList from './ChatList';
+export  {Chat,ChatList};

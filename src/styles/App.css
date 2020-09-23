@@ -222,20 +222,20 @@ input[type=text].form-control-customize:focus{
     overflow-y: scroll;
     position: relative;
 }
-#style-2::-webkit-scrollbar-track
+#style-scroll::-webkit-scrollbar-track
 {
 	
 	border-radius: 10px;
 	background-color: #F5F5F5;
 }
 
-#style-2::-webkit-scrollbar
+#style-scroll::-webkit-scrollbar
 {
 	width: 8px;
 	background-color: #F5F5F5;
 }
 
-#style-2::-webkit-scrollbar-thumb
+#style-scroll::-webkit-scrollbar-thumb
 {
 	border-radius: 10px;
 	background-color: #b1b1b1;
@@ -259,4 +259,25 @@ input[type=text].form-control-customize:focus{
 .message-own {
     position: relative;
     top: 10px;
+}
+.chat-list-card-body-customize{
+    max-height: 450px;
+    overflow-y: auto;
+}
+.chat-list-ul-customize{
+    list-style: none;
+    margin : 0;
+    padding : 0;
+}
+.chat-list-ul-customize li {
+    margin-bottom: 10px;
+    height: auto;
+    width: 100%;
+    display: block;
+    padding : 3px;
+    border-radius: 20px;
+    transition : all .2s linear;
+}
+.chat-list-ul-customize li:hover {
+    background-color:#f8f9fa;
 }

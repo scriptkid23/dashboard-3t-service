@@ -4,7 +4,7 @@ import {FontPoppins,CardCustomize,FontMontserrat} from '../../../styles/common/i
 import  MessageDemo from './message.json'
 import MessageList from './MessageList';
 import chatReducer,{defaultState} from './ChatReducer'
-export default () => {
+export default ({roomName,roomID,own}) => {
   const height = window.innerHeight;
   const [state,dispatch] = React.useReducer(chatReducer,defaultState)
   const elScroll = React.useRef(null);
@@ -83,8 +83,9 @@ export default () => {
               <FontMontserrat size={15} className="font-weight-bold mt-1 mb-0 ml-1">Pea Boy</FontMontserrat>
           </Media>
       </Card.Header>
-      <Card.Body className="card-body-customize" id="style-2" ref={elScroll}>
+      <Card.Body className="card-body-customize" id="style-scroll" ref={elScroll}>
         <MessageList
+          own = {own}
           messages={state.messages}
         />
       </Card.Body>
