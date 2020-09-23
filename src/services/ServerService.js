@@ -1,13 +1,14 @@
 import Axios from 'axios';
 import API from './api'
 function Login(params) {
+    console.log(params)
     return Axios({
-        baseUrl: API.BASEURL,
+        baseUrl: 'http://localhost:5000',
         method : API.LOGIN.METHOD,
         url: API.LOGIN.URI,
         data : {
-            email : params.payload.data.email,
-            password : params.payload.data.password,
+            email : params.email,
+            password : params.password,
         }
     }).then(result => {return result})
     .catch(error => {return error.response})

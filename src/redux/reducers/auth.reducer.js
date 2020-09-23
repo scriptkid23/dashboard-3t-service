@@ -1,6 +1,7 @@
 import {handleActions,createActions} from 'redux-actions';
 
 export const actions = createActions({
+    "SET_VALUE" : [meta => meta, payload => payload],
 
     "LOGIN": {
         "LOGIN_REQUESTED"   : [meta => meta, payload => payload],
@@ -30,12 +31,15 @@ const defaultState = {
     variant : "",
 }
 const reducers = handleActions({
+    [actions.setValue] : (state,action) =>{
+        return({
+            ...state,
+            [action.payload.name] : action.payload.value
+        })
+    },
     [actions.login.loginRequested] : (state,action) =>{
         return({
             ...state,
-            username : action.payload.username,
-            password : action.payload.password,
-            email : action.payload.email,
             loading : true,
         })
     },

@@ -1,8 +1,9 @@
 import {combineReducers} from 'redux';
+import authReducer from './auth.reducer'
 import {nestedCombineReducers} from 'nested-combine-reducers';
 
 const rootReducer = nestedCombineReducers({
-   store : {}
+   auth : authReducer
 },combineReducers);
 
 export default rootReducer;

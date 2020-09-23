@@ -30,7 +30,7 @@ export default function PasswordRecovery() {
                                     
                                 </Slide>
                                 <Slide>
-                                    <Form.Group controlId="formBasicEmail" className="mt-3">
+                                    <Form.Group className="mt-3">
                                         <Form.Control type="email" placeholder="Enter Email" className="input-customize"/>
                                     </Form.Group>
                                    

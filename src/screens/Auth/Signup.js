@@ -32,11 +32,17 @@ export default function Signup() {
                                         placeholder="Enter Name" 
                                         className="input-customize"/>
                                     </Form.Group>
-                                    <Form.Group controlId="formBasicEmail" className="mt-0 mb-0">
-                                        <Form.Control type="email" placeholder="Enter Email" className="input-customize"/>
+                                    <Form.Group  className="mt-0 mb-0">
+                                        <Form.Control 
+                                        type="email" 
+                                        placeholder="Enter Email" 
+                                        className="input-customize"/>
                                     </Form.Group>
-                                    <Form.Group controlId="formBasicEmail" className="mt-0">
-                                        <Form.Control type="password" placeholder="Enter Password" className="input-customize"/>
+                                    <Form.Group  className="mt-0">
+                                        <Form.Control 
+                                        type="password" 
+                                        placeholder="Enter Password" 
+                                        className="input-customize"/>
                                     </Form.Group>
                                     <Form.Group className="d-flex justify-content-end">
                                         <Button 
