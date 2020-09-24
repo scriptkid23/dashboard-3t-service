@@ -20,9 +20,9 @@ function Register(params) {
         method : 'POST',
         url : API.REGISTER.URI,
         data : {
-            email : params.payload.data.email,
-            password : params.payload.data.password,
-            username : params.payload.data.username,
+            email : params.email,
+            password : params.password,
+            fullname : params.fullname,
         }
     }).then(result => {return result})
     .catch(error => {return error.response})
@@ -47,7 +47,7 @@ function ForgotPassword(params){
         method : 'POST',
         url : API.FORGOT_PASSWORD.URI,
         data : {
-            email : params.payload.data.email,
+            email : params.email,
         }
     }).then(result => {return result})
     .catch(error => {return error.response})
@@ -59,19 +59,19 @@ function ConfirmForgotPassword(params) {
         method : 'POST',
         url : API.CONFIRM_FORGOT_PASSWORD.URI,
         data : {
-            otp : params.payload.data.otp,
+            otp : params.otp,
         }
     }).then(result => {return result})
     .catch(error => {return error.response})
 }
 
-function ConfirmRegister(params) {
+function ConfirmRegister(otp) {
     return Axios({
         baseUrl : API.BASEURL,
-        method : 'POST',
+        method : 'PUT',
         url : API.CONFIRM_REGISTER.URI,
         data : {
-            otp : params.payload.data.otp,
+            otp : otp,
         }
     }).then(result => {return result})
     .catch(error => {return error.response})

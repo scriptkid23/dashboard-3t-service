@@ -3,7 +3,7 @@ import React from 'react';
 import {Container,Row,Col,Form,Button, Alert} from 'react-bootstrap'
 import image from '../../assets/index'
 import {FontPoppins} from '../../styles/common/index'
-import {Slide,Fade} from 'react-awesome-reveal'
+import {Slide} from 'react-awesome-reveal'
 import { useHistory } from "react-router-dom";
 import {useSelector,useDispatch} from 'react-redux'
 import * as authReducer from '../../redux/reducers/auth.reducer'
@@ -16,7 +16,10 @@ export default function Login() {
   const setValue = (e) => {
       dispatch(authAction.setValue({name : e.target.name, value: e.target.value}))
   }
-  
+  const redirectSignUp = () => {
+    dispatch(authAction.setDefault())
+    history.push('/auth/signup')
+  }
   const handleLogin = () => {
     dispatch(authAction.login.requested({callback : history}))
   }
@@ -69,7 +72,7 @@ export default function Login() {
                                     
                                     <Form.Group className="d-flex justify-content-end">
                                         <Button 
-                                        onClick={() => history.push('/auth/signup')}
+                                        onClick={() => redirectSignUp()}
                                         className="btn-customize btn-outline mr-2" 
                                         data-micron="fade">
                                             Sign Up

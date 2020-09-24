@@ -5,6 +5,9 @@ import image from '../../assets/index'
 import {FontPoppins} from '../../styles/common/index'
 import {Slide} from 'react-awesome-reveal'
 import { useHistory } from "react-router-dom";
+import {useSelector,useDispatch} from 'react-redux'
+import * as authReducer from '../../redux/reducers/auth.reducer'
+
 export default function PasswordRecovery() {
   const history = useHistory();
   return (
@@ -27,7 +30,6 @@ export default function PasswordRecovery() {
                                     <Slide>
                                         <img src={image.svg.rectangle} alt=" "/>
                                     </Slide>
-                                    
                                 </Slide>
                                 <Slide>
                                     <Form.Group className="mt-3">

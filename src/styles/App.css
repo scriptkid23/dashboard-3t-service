@@ -330,3 +330,18 @@ input[type=text].form-control-customize:focus{
     height: calc(100vh - 10vh);
     overflow-y : scroll;
 }
+
+.otp-input{
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: #ffe2e2;
+    border: none;
+    color :  #00005c;
+    text-align: center;
+    margin : 3px;
+}
+.otp-input:focus{
+   outline: none;
+}

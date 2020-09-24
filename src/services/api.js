@@ -7,7 +7,7 @@ const API = {
         METHOD : "POST",
     },
     REGISTER:{
-        URI    : "api/register",
+        URI    : "api/signup",
         METHOD : "POST",
     },
     LOGOUT: {
@@ -19,7 +19,7 @@ const API = {
         METHOD : "POST",
     },
     CONFIRM_REGISTER: {
-        URI    : "api/register",
+        URI    : "api/signup",
         METHOD : "PUT",
     },
     CONFIRM_FORGOT_PASSWORD: {

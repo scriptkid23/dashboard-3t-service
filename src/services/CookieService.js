@@ -12,4 +12,5 @@ class CookieService{
         cookie.remove(key);
     }
 }
+
 export default new CookieService();
