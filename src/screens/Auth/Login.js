@@ -18,7 +18,7 @@ export default function Login() {
   }
   
   const handleLogin = () => {
-    dispatch(authAction.login.loginRequested({callback : history}))
+    dispatch(authAction.login.requested({callback : history}))
   }
   return (
      <Container fluid>
@@ -30,7 +30,10 @@ export default function Login() {
                             <Form>
                                 <Slide cascade>
                                     <div>
-                                    {authStore.message.length > 0 &&<Alert variant={authStore.variant} className="m-0">{authStore.message}</Alert>}
+                                    {   authStore.message.length > 0 && 
+                                        authStore.variant !== 'success' && 
+                                        <Alert variant={authStore.variant} className="m-0">{authStore.message}</Alert>
+                                    }
                                         <FontPoppins size={36} className="font-weight-bold">Login</FontPoppins>
                                         <FontPoppins size={17} className="m-0">Welcome back, Please login in to your account</FontPoppins>
                                     </div>

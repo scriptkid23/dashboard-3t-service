@@ -1,16 +1,18 @@
 import React from 'react';
-import {Slide} from 'react-reveal'
-import {NavLink, useLocation} from 'react-router-dom'
+import {NavLink, useHistory} from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+import * as authReducer from '../../redux/reducers/auth.reducer'
 export default function Sidebar(){
-    const location = useLocation();
-    const listPathName = {
-        fromHome : false,
-        fromChatRoom : false,
-        fromBookmarks : false,
-        fromSetting : false,
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const authAction = {...authReducer.actions};
+
+    const handleLogout = () => {
+        dispatch(authAction.logout.requested({callback:history}));
     }
+
+   
     return(  
-        <Slide left>
             <nav id="sidebar" className="p-0 d-flex justify-content-center align-items-center">
              <ul className="sidebar-ul-customize">
                     <NavLink activeClassName="active" className="link-customize" to={{
@@ -47,14 +49,13 @@ export default function Sidebar(){
                     <NavLink  className="link-customize" to={{
                         pathname : "/auth/login",   
                     }}>
-                        <li className={`ttt-pointer pl-2`}>
-                            <i class="lni lni-enter"></i>
+                        <li 
+                            onClick={() => handleLogout()}
+                            className={`ttt-pointer pl-2`}>
+                            <i className="lni lni-enter"></i>
                         </li>
                     </NavLink>
              </ul>
-            </nav>
-        </Slide>
-       
-            
+            </nav>            
     )
 }

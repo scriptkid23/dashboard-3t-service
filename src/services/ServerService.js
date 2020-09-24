@@ -28,11 +28,14 @@ function Register(params) {
     .catch(error => {return error.response})
 }
 
-function Logout() {
+function Logout(token) {
     return Axios({
         baseUrl : API.BASEURL,
         method : 'DELETE',
         url : API.LOGOUT.URI,
+        headers   : {
+            Authorization : "Bearer " + token
+        }
        
     }).then(result => {return result})
     .catch(error => {return error.response})

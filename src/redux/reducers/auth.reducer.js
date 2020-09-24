@@ -4,19 +4,19 @@ export const actions = createActions({
     "SET_VALUE" : [meta => meta, payload => payload],
 
     "LOGIN": {
-        "LOGIN_REQUESTED"   : [meta => meta, payload => payload],
-        "LOGIN_SUCCEEDED"   : [meta => meta, payload => payload],
-        "LOGIN_FAILED"      : [meta => meta, payload => payload]
+        "REQUESTED"   : [meta => meta, payload => payload],
+        "SUCCEEDED"   : [meta => meta, payload => payload],
+        "FAILED"      : [meta => meta, payload => payload]
     },
     "REGISTER" : {
-        "REGISTER_REQUESTED" : [meta => meta, payload => payload],
-        "REGISTER_SUCCEEDED" : [meta => meta, payload => payload],
-        "REGISTER_FAILED"    : [meta => meta, payload => payload],
+        "REQUESTED" : [meta => meta, payload => payload],
+        "SUCCEEDED" : [meta => meta, payload => payload],
+        "FAILED"    : [meta => meta, payload => payload],
     },
     "LOGOUT":{
-        "LOGOUT_REQUESTED"  : [meta => meta, payload => payload],
-        "LOGOUT_SUCCEEDED"  : [meta => meta, payload => payload],
-        "LOGOUT_FAILED"     : [meta => meta, payload => payload],
+        "REQUESTED"  : [meta => meta, payload => payload],
+        "SUCCEEDED"  : [meta => meta, payload => payload],
+        "FAILED"     : [meta => meta, payload => payload],
     },
     
 
@@ -37,13 +37,13 @@ const reducers = handleActions({
             [action.payload.name] : action.payload.value
         })
     },
-    [actions.login.loginRequested] : (state,action) =>{
+    [actions.login.requested] : (state,action) =>{
         return({
             ...state,
             loading : true,
         })
     },
-    [actions.login.loginSucceeded] : (state,action) =>{
+    [actions.login.succeeded] : (state,action) =>{
         return({
             ...state,
             loading : false,
@@ -52,12 +52,18 @@ const reducers = handleActions({
           
         })
     },
-    [actions.login.loginFailed] : (state,action) =>{
+    [actions.login.failed] : (state,action) =>{
         return({
             ...state,
             loading : false,
             message : action.payload.data.message,
             variant : "danger"
+        })
+    },
+    [actions.logout.requested] : (state,action) =>{
+        return({
+            ...state,
+            loading : true,
         })
     },
 
