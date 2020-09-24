@@ -44,6 +44,13 @@ export default function Sidebar(){
                             <i className="lni lni-cog"></i>
                         </li>
                     </NavLink>
+                    <NavLink  className="link-customize" to={{
+                        pathname : "/auth/login",   
+                    }}>
+                        <li className={`ttt-pointer pl-2`}>
+                            <i class="lni lni-enter"></i>
+                        </li>
+                    </NavLink>
              </ul>
             </nav>
         </Slide>

@@ -47,15 +47,16 @@ const reducers = handleActions({
         return({
             ...state,
             loading : false,
-            message : action.payload.message,
-            variant : "success"
+            message : "login succeeded",
+            variant : "success",
+          
         })
     },
     [actions.login.loginFailed] : (state,action) =>{
         return({
             ...state,
             loading : false,
-            message : action.payload.message,
+            message : action.payload.data.message,
             variant : "danger"
         })
     },

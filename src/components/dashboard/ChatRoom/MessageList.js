@@ -7,6 +7,7 @@ export default ({messages,own}) => {
             {messages.map((value, index) => {
                 return(
                     <Message
+                        key = {index}
                         avatar  = {value.avatar}
                         isOwn   = {own  === value.own ? true : false}
                         message = {value.message}

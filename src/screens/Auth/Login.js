@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
-import {Container,Row,Col,Form,Button} from 'react-bootstrap'
+import {Container,Row,Col,Form,Button, Alert} from 'react-bootstrap'
 import image from '../../assets/index'
 import {FontPoppins} from '../../styles/common/index'
 import {Slide,Fade} from 'react-awesome-reveal'
@@ -16,6 +16,10 @@ export default function Login() {
   const setValue = (e) => {
       dispatch(authAction.setValue({name : e.target.name, value: e.target.value}))
   }
+  
+  const handleLogin = () => {
+    dispatch(authAction.login.loginRequested({callback : history}))
+  }
   return (
      <Container fluid>
          <Row className="vh-100">
@@ -26,16 +30,19 @@ export default function Login() {
                             <Form>
                                 <Slide cascade>
                                     <div>
+                                    {authStore.message.length > 0 &&<Alert variant={authStore.variant} className="m-0">{authStore.message}</Alert>}
                                         <FontPoppins size={36} className="font-weight-bold">Login</FontPoppins>
                                         <FontPoppins size={17} className="m-0">Welcome back, Please login in to your account</FontPoppins>
                                     </div>
                                     <img src={image.svg.rectangle} alt=" "/>
                                 </Slide>
+                                
                                 <Slide>
                                     <Form.Group className="mb-0 mt-5" >
                                         <Form.Control type="email" 
                                         placeholder="Enter email" 
                                         name = "email"
+                                        value = {authStore.email}
                                         onChange = {(e) => setValue(e)}
                                         className="input-customize"/>
                                     </Form.Group>
@@ -44,6 +51,7 @@ export default function Login() {
                                         name = "password"
                                         onChange = {(e) => setValue(e)}
                                         type="password" 
+                                        value = {authStore.password}
                                         placeholder="Enter password" 
                                         className="input-customize"/>
                                     </Form.Group>
@@ -64,9 +72,7 @@ export default function Login() {
                                             Sign Up
                                         </Button>
                                         <Button
-                                        onClick = {() => {
-                                            dispatch(authAction.login.loginRequested())
-                                        }}
+                                        onClick= {() => handleLogin()}
                                         className="btn-customize"
                                         data-micron="blink"
                                         >Login</Button>

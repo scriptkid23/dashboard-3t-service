@@ -28,7 +28,7 @@ export default ({avatar,message,isOwn,own}) => {
         <div>
             {message.map((value,index) => {
                 return(
-                    <Media>
+                    <Media key={index}>
                         {index === 0 ? 
                         <Image className="avatar-32" src={avatar} roundedCircle/>  
                         :  
