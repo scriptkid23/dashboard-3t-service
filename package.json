@@ -50,8 +50,6 @@
     ]
   },
   "devDependencies": {
-    "redux-devtools": "^3.7.0",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "redux-devtools": "^3.7.0"
   }
 }
