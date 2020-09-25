@@ -25,6 +25,9 @@ export default function Login() {
   }
   return (
      <Container fluid>
+     {authStore.loading && <div className="fade modal-backdrop show">
+
+     </div>}
          <Row className="vh-100">
             <Col xs={7} className="ttt-auth-content d-flex align-items-center">          
                      <img src={image.svg.logo} alt="" className="ttt-login-logo"/>
