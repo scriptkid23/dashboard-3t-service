@@ -1,7 +1,8 @@
 import PasswordRecovery from './screens/Auth/PasswordRecovery'
 import Login from './screens/Auth/Login';
 import Signup from './screens/Auth/Signup';
-
+import ChatRoom from './screens/Dashboard/ChatRoom'
+import ConfirmOTP from './screens/Auth/ConfirmOTP'
 
 const Routers = [
     // ======================= AUTH LAYOUT ====================== //
@@ -13,7 +14,7 @@ const Routers = [
         require : false,
     },
     {
-        path: "/Signup",
+        path: "/signup",
         name: "Signup",
         component: Signup,
         layout: "/auth",
@@ -26,6 +27,21 @@ const Routers = [
         layout: "/auth",
         require : false,
     },
+    {
+        path: "/confirm",
+        name: "Confirm OTP",
+        component: ConfirmOTP,
+        layout: "/auth",
+        require : false,
+    },
+    {
+        path: "/chat-room",
+        name: "Chat Room",
+        component: ChatRoom,
+        layout: "/dashboard",
+        require : true,
+    },
+  
   
 
     
