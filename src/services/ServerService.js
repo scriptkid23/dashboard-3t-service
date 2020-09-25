@@ -3,7 +3,7 @@ import API from './api'
 function Login(params) {
     console.log(params)
     return Axios({
-        baseUrl: API.BASEURL,
+        baseURL: API.BASEURL,
         method : API.LOGIN.METHOD,
         url: API.LOGIN.URI,
         data : {
@@ -16,7 +16,7 @@ function Login(params) {
 
 function Register(params) {
     return Axios({
-        baseUrl : API.BASEURL,
+        baseURL : API.BASEURL,
         method : 'POST',
         url : API.REGISTER.URI,
         data : {
@@ -30,7 +30,7 @@ function Register(params) {
 
 function Logout(token) {
     return Axios({
-        baseUrl : API.BASEURL,
+        baseURL : API.BASEURL,
         method : 'DELETE',
         url : API.LOGOUT.URI,
         headers   : {
@@ -43,7 +43,7 @@ function Logout(token) {
 
 function ForgotPassword(email){
     return Axios({
-        baseUrl : API.BASEURL,
+        baseURL : API.BASEURL,
         method : 'POST',
         url : API.FORGOT_PASSWORD.URI,
         data : {
@@ -55,7 +55,7 @@ function ForgotPassword(email){
 
 function ConfirmForgotPassword(params) {
     return Axios({
-        baseUrl : API.BASEURL,
+        baseURL : API.BASEURL,
         method : 'PUT',
         url : API.CONFIRM_FORGOT_PASSWORD.URI,
         data : {
@@ -68,7 +68,7 @@ function ConfirmForgotPassword(params) {
 
 function ConfirmRegister(params) {
     return Axios({
-        baseUrl : API.BASEURL,
+        baseURL : API.BASEURL,
         method : 'PUT',
         url : API.CONFIRM_REGISTER.URI,
         data : {
