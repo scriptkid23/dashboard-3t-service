@@ -4,6 +4,11 @@ export const actions = createActions({
     "SET_VALUE": [meta => meta, payload => payload],
     "SET_DEFAULT": [meta => meta, payload => payload],
 
+    "FORGOT" : {
+        "REQUESTED": [meta => meta, payload => payload],
+        "SUCCEEDED": [meta => meta, payload => payload],
+        "FAILED": [meta => meta, payload => payload]
+    },
     "LOGIN": {
         "REQUESTED": [meta => meta, payload => payload],
         "SUCCEEDED": [meta => meta, payload => payload],
@@ -35,8 +40,32 @@ const defaultState = {
     email: "",
     roles: ['user'],
     variant: "",
+    time : "",
 }
 const reducers = handleActions({
+    [actions.forgot.requested] : (state,action) => {
+        return({
+            ...state,
+            loading : true,
+        })
+    },
+    [actions.forgot.succeeded] : (state,action) => {
+        return({
+            ...state,
+            loading : false,
+            message : action.payload.data.message,
+            variant : "success",
+            time : action.payload.data.time
+        })
+    },
+    [actions.forgot.failed] : (state,action) => {
+        return({
+            ...state,
+            loading : false,
+            message : action.payload.data.message,
+            variant : "danger"
+        })
+    },
     [actions.confirm.requested] : (state,action) => {
         return({
             ...state,
@@ -102,6 +131,7 @@ const reducers = handleActions({
             message: "vertification succeeded",
             variant: "success",
             loading : false,
+            time : action.payload.data.time
         })
     },
     [actions.signup.failed]: (state, action) => {

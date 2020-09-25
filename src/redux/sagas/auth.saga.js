@@ -16,14 +16,36 @@ function* loginRequested(params){
             yield put({type : "LOGIN/FAILED",payload : {data,status}})
         }
     }catch(e){
-        yield put({type : "LOGIN/FAILED",payload : e})
+        yield put({type : "LOGIN/FAILED",payload : {data : {message : e}}})
+    }
+}
+function* forgotRequested(params) {
+    try{
+        console.log(params)
+        let {data,status} = yield call(ForgotPassword,params.payload.email);
+        if(status === 200){
+            yield put({type:"FORGOT/SUCCEEDED",payload:{data,status}})
+            params.payload.callback.push({
+                pathname : "/auth/confirm",
+                state :{
+                    from : 'forgot'
+                }
+            })
+        }
+        else{
+            yield put({type : "FORGOT/FAILED",payload : {data,status}})
+
+        }
+    }catch(e){
+            yield put({type : "FORGOT/FAILED",payload : {data : {message : e}}})
     }
 }
 function* confirmRequested(params){
     try{
+        const payload = yield select(getAuthState);
         let from = params.payload.callback.location.state.from;
             if(from === 'signup'){
-                let {data,status} = yield call(ConfirmRegister,params.payload.otp);
+                let {data,status} = yield call(ConfirmRegister,{otp: params.payload.otp,time : payload.time});
                 if(status === 200){
                     yield put({type:"CONFIRM/SUCCEEDED",payload:{data,status}})
                     CookieService.set('token',data.token)
@@ -34,7 +56,7 @@ function* confirmRequested(params){
                 }
             }
             if(from === 'forgot'){
-                let {data,status} = yield call(ConfirmForgotPassword,params.payload.otp);
+                let {data,status} = yield call(ConfirmForgotPassword,{otp: params.payload.otp,time : payload.time});
                 if(status === 200){
                     yield put({type:"CONFIRM/SUCCEEDED",payload:{data,status}})
                     CookieService.set('token',data.token)
@@ -46,7 +68,7 @@ function* confirmRequested(params){
             }
     }
     catch(e){
-        yield put({type : "CONFIRM/FAILED",payload : e})
+        yield put({type : "CONFIRM/FAILED",payload : {data : {message : e}}})
     }
 }
 function* signupRequested(params){
@@ -67,7 +89,7 @@ function* signupRequested(params){
         }
     }
     catch(e){
-        yield put({type : "SIGNUP/FAILED",payload : e})
+        yield put({type : "SIGNUP/FAILED",payload : {data : {message : e}}})
     }
 }
 function *logoutRequested(params){
@@ -83,7 +105,7 @@ function *logoutRequested(params){
             yield put({type : "LOGOUT/FAILED",payload : {data,status}})
         }
     }catch(e){
-        yield put({type : "LOGOUT/FAILED",payload : e})
+        yield put({type : "LOGOUT/FAILED",payload : {data : {message : e}}})
     }
 }
 export default function* authSaga(){
@@ -91,4 +113,5 @@ export default function* authSaga(){
     yield takeEvery("LOGOUT/REQUESTED",logoutRequested)
     yield takeEvery("SIGNUP/REQUESTED",signupRequested)
     yield takeEvery("CONFIRM/REQUESTED",confirmRequested)
+    yield takeEvery("FORGOT/REQUESTED",forgotRequested)
 }

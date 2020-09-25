@@ -21,8 +21,9 @@ export default function ConfirmOTP() {
         optModule.init((passcode) => setPasscode(passcode) )
     },[passcode])
     
-    const handleConfirmOTP = () => {
+    const handleConfirmOTP = (e) => {
         dispatch(authAction.confirm.requested({otp:passcode, callback:history}))
+        e.preventDefault()
     }
   return (
      <Container fluid>
@@ -31,21 +32,20 @@ export default function ConfirmOTP() {
                      <img src={image.svg.logo} alt="" className="ttt-login-logo"/>
                      <Container>
                          <Col xs={7}>
-                            <Form className="mt-5">                     
-                                    <div className="ttt-pointer" onClick={() => history.goBack()}>
-                                        <i className="fas fa-arrow-left signup-back"></i>
-                                        <span className="signup-back">Back</span>
-                                    </div>
-                                    <div>
-                                        {authStore.message.length > 0 && 
-                                            authStore.variant !== 'success' && 
-                                            <Alert variant={authStore.variant} className="m-0">{authStore.message}</Alert>
-                                        }
-                                        <FontPoppins size={33} className="font-weight-bold">Enter vertification code</FontPoppins>
-                                        <FontPoppins size={17} className="m-0">We have just send vertification code to {'email'}</FontPoppins>
-                                    </div>
-                                  
-                                        <img src={image.svg.rectangle} alt=" "/>
+                            <Form className="mt-5" onSubmit={handleConfirmOTP}>                     
+                                <div className="ttt-pointer" onClick={() => history.goBack()}>
+                                    <i className="fas fa-arrow-left signup-back"></i>
+                                    <span className="signup-back">Back</span>
+                                </div>
+                                <div>
+                                    {authStore.message.length > 0 && 
+                                        authStore.variant !== 'success' && 
+                                        <Alert variant={authStore.variant} className="m-0">{authStore.message}</Alert>
+                                    }
+                                    <FontPoppins size={33} className="font-weight-bold">Enter vertification code</FontPoppins>
+                                <FontPoppins size={17} className="m-0">We have just send vertification code to {authStore.email}</FontPoppins>
+                                </div>               
+                                <img src={image.svg.rectangle} alt=" "/>
                                 <div id="otp-inputs" ref={otpRef} className="mt-3 mb-3 d-flex justify-content-between">
                                     <input className="otp-input" type="text"  pattern="\d*" inputMode="numeric"/>
                                     <input className="otp-input" type="text"  pattern="\d*" inputMode="numeric"/>
@@ -58,12 +58,11 @@ export default function ConfirmOTP() {
                                         <FontPoppins 
                                         onClick={() => history.push('/auth/password-recovery')}
                                         color="#224070" 
-                                        className="ttt-pointer">Resend vertification code</FontPoppins> 
-                                      
+                                        className="ttt-pointer">Resend vertification code</FontPoppins>         
                                 </Form.Group>   
                                 <Form.Group className="d-flex justify-content-end">
                                     <Button 
-                                        onClick = {() => handleConfirmOTP()}
+                                        onClick = {(e) => handleConfirmOTP(e)}
                                         className="btn-customize mr-2" 
                                         data-micron="bounce">
                                             Send
