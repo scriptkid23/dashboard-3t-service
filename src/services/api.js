@@ -1,5 +1,5 @@
 const API = {
-    BASEURL: "http://localhost:5000",
+    BASEURL: "https://tttap-server.herokuapp.com",
 
     // ========= auth layout ===================== // 
     LOGIN:{
