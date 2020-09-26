@@ -1,7 +1,6 @@
 import Axios from 'axios';
 import API from './api'
 function Login(params) {
-    console.log(params)
     return Axios({
         baseURL: API.BASEURL,
         method : API.LOGIN.METHOD,

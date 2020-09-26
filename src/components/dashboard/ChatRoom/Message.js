@@ -2,6 +2,7 @@ import React from 'react'
 import {Media,Image} from 'react-bootstrap'
 import {FontMontserrat} from '../../../styles/common/index'
 export default ({avatar,message,isOwn,own}) => {
+   
     return(
         isOwn ? 
             <div>

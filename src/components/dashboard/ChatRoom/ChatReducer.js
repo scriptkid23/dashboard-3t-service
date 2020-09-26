@@ -2,9 +2,10 @@ export const defaultState = {
     messages : [],
     isTyping : false,
     message : {
-        own : "",
+        own : localStorage.getItem("email"),
         message : "",
         avatar : "",
+        seenBy : [""],
     },
  };
  
@@ -33,6 +34,16 @@ export const defaultState = {
                  },
 
              }
+        case 'CLEAN_MESSAGE':
+            return{
+                ...state,
+                message : {
+                    own : "",
+                    message : "",
+                    avatar : "",
+                    seenBy : [""],
+                },
+            }
          default:
              break;
      }
