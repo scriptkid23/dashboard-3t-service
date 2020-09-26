@@ -6,7 +6,7 @@ import {FontPoppins} from '../../styles/common/index'
 import { useHistory} from "react-router-dom";
 import {useSelector,useDispatch} from 'react-redux'
 import * as authReducer from '../../redux/reducers/auth.reducer'
-
+import Backdrop from '../../components/common/Backdrop'
 import {otp} from '../../services/extensions'
 export default function ConfirmOTP() {
     const history = useHistory();
@@ -27,6 +27,7 @@ export default function ConfirmOTP() {
     }
   return (
      <Container fluid>
+         {authStore.loading &&<Backdrop show={authStore.loading}/>}
          <Row className="vh-100">
             <Col xs={7} className="ttt-auth-content d-flex align-items-center">          
                      <img src={image.svg.logo} alt="" className="ttt-login-logo"/>

@@ -6,22 +6,27 @@ import {FontPoppins} from '../../styles/common/index'
 import {Slide} from 'react-awesome-reveal'
 import { useHistory } from "react-router-dom";
 import {useSelector,useDispatch} from 'react-redux'
+import Backdrop from '../../components/common/Backdrop'
 import * as authReducer from '../../redux/reducers/auth.reducer'
 
 export default function PasswordRecovery() {
   const history = useHistory();
-  const [email,setEmail] = React.useState('');
+ 
   const dispatch = useDispatch();
   const authActions = {...authReducer.actions};
   const authStore  = useSelector(state => state.auth)
 
+  const setValue = (e) => {
+      dispatch(authActions.setValue({name:e.target.name,value : e.target.value}))
+  }
   const handleSend = (e) => {
-    dispatch(authActions.forgot.requested({email:email,callback : history}))
+    dispatch(authActions.forgot.requested({email:authStore.email,callback : history}))
     e.preventDefault()
   }
 
   return (
      <Container fluid>
+         {authStore.loading &&<Backdrop show={authStore.loading}/>}
          <Row className="vh-100">
             <Col xs={7} className="ttt-auth-content d-flex align-items-center">          
                      <img src={image.svg.logo} alt="" className="ttt-login-logo"/>
@@ -49,9 +54,10 @@ export default function PasswordRecovery() {
                                     <Form onSubmit = {handleSend}>
                                         <Form.Group className="mt-3">
                                             <Form.Control 
-                                                value = {email}
-                                                onChange = {(e) => setEmail(e.target.value)}
+                                                value = {authStore.email}
+                                                onChange = {(e) => setValue(e)}
                                                 type="email" 
+                                                name = "email"
                                                 placeholder="Enter Email" 
                                                 className="input-customize"/>
                                         </Form.Group>
