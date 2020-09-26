@@ -35,7 +35,7 @@
     "universal-cookie": "^4.0.4"
   },
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "nodemon server.js",
     "heroku-postbuild": "npm install && npm run build"
   },
   "eslintConfig": {
@@ -55,5 +55,6 @@
   },
   "devDependencies": {
     "redux-devtools": "^3.7.0"
-  }
+  },
+  "proxy": "http://localhost:8080"
 }
