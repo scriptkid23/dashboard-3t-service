@@ -12,7 +12,7 @@ export default function ChatRoom(){
                     <Chat 
                       roomName = ""
                       roomID = ""
-                      own = "John"
+                      own = {localStorage.getItem("email")}
                     />
                 </Col>
                 <Col>

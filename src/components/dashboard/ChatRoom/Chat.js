@@ -4,11 +4,12 @@ import {FontPoppins,CardCustomize,FontMontserrat} from '../../../styles/common/i
 import  MessageDemo from './message.json'
 import MessageList from './MessageList';
 import chatReducer,{defaultState} from './ChatReducer'
+import {db} from '../../../services/FirebaseService'
 export default ({roomName,roomID,own}) => {
   const height = window.innerHeight;
   const [state,dispatch] = React.useReducer(chatReducer,defaultState)
   const elScroll = React.useRef(null);
-
+  const [key, setKey] = React.useState(null);
   const scrollToBottom = () => {
     elScroll.current.scrollTop = elScroll.current.scrollHeight;
     elScroll.current.scrollIntoView({ behavior: "smooth" })
@@ -17,51 +18,96 @@ export default ({roomName,roomID,own}) => {
    scrollToBottom(); 
   })
   React.useEffect(() => {
-    dispatch({
-      type : "GET_STORE",
-      messages : MessageDemo
-    })
+    try{
+      db.ref("chats").on("value",snapshot => {
+        let chats = []
+        let keys = []
+        snapshot.forEach((snap) => {
+          keys.push(snap.key)
+          chats.push(snap.val())
+        })
+        dispatch({
+          type : "GET_STORE",
+          messages : chats 
+        })
+        setKey(keys)
+      })
+    }catch(e){
+       console.log(e)
+    }
+  
   },[state.message])
   const typing = (e) => {
       dispatch({
         type : "SET_MESSAGE",
         message : {
-          own : 'John',
+          own : localStorage.getItem("email"),
           avatar : "https://www.flaticon.com/svg/static/icons/svg/3468/3468075.svg",
-          message : e.target.value,
+          message : [e.target.value],
+          seenBy : [""]
         }
       })
   }
-  const exportMessage = (data,obj) => {
+//   const exportMessage = (data,obj) => {
    
-   if(data.length === 0){
-     data.push({
-       own: obj.own,
-       avatar : obj.avatar,
-       message : [obj.message]
-     })
-     return data
-   }
-   if(data[data.length -1].own === obj.own){
-     data[data.length - 1].message.push(obj.message)
-     return data
-   }
-   else{
-     data.push({
-       own: obj.own,
-       avatar : obj.avatar,
-       message : [obj.message]
-     })
-     return data
-   }
- }
-  const sendMessage =(event) => {
-   
-    dispatch({
-      type : "SEND_MESSAGE",
-      messages : exportMessage(state.messages,state.message)
-    })
+//    if(data.length === 0){
+//      data.push({
+//        own: obj.own,
+//        avatar : obj.avatar,
+//        message : [obj.message],
+//        seenBy : [""],
+//      })
+//      return data
+//    }
+//    if(data[data.length -1].own === obj.own){
+//      data[data.length - 1].message.push(obj.message)
+//      return data
+//    }
+//    else{
+//      data.push({
+//        own: obj.own,
+//        avatar : obj.avatar,
+//        message : [obj.message]
+//      })
+//      return data
+//    }
+//  }
+  const sendMessage = async (event) => {
     event.preventDefault();
+   try{
+   
+      if(state.messages.length === 0){
+       await db.ref("chats").push({
+          ...state.message
+        })
+        dispatch({
+          type : "CLEAN_MESSAGE"
+        })
+      }
+      else if(state.messages[state.messages.length -1].own === state.message.own){
+        state.messages[state.messages.length -1].message.push(state.message.message)
+       await db.ref("chats/" + key[key.length - 1]).update({
+          message : state.messages[state.messages.length -1].message
+        })
+        dispatch({
+          type : "CLEAN_MESSAGE"
+        })
+      }
+      else{
+        await db.ref("chats").push({
+          ...state.message
+        })
+        dispatch({
+          type : "CLEAN_MESSAGE"
+        })
+      }
+      
+
+   }
+   catch(e){
+     console.log(e)
+   }
+  
   }
 
   
@@ -71,7 +117,6 @@ export default ({roomName,roomID,own}) => {
 //       behavior:"smooth"   
 // })
 
- 
   return (
     <CardCustomize height={height}>
       <Card.Header className="card-header-customize">
