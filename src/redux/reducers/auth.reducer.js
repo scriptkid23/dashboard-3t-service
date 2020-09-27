@@ -4,6 +4,11 @@ export const actions = createActions({
     "SET_VALUE": [meta => meta, payload => payload],
     "SET_DEFAULT": [meta => meta, payload => payload],
 
+    "GET_USER_DETAIL": {
+        "REQUESTED": [meta => meta, payload => payload],
+        "SUCCEEDED": [meta => meta, payload => payload],
+        "FAILED": [meta => meta, payload => payload]
+    },
     "FORGOT" : {
         "REQUESTED": [meta => meta, payload => payload],
         "SUCCEEDED": [meta => meta, payload => payload],
@@ -41,8 +46,32 @@ const defaultState = {
     roles: ['user'],
     variant: "",
     time : "",
+    user_detail : {},
 }
 const reducers = handleActions({
+    [actions.getUserDetail.requested] : (state,action) => {
+        return({
+            ...state,
+            loading : true,
+        })
+    },
+    [actions.getUserDetail.succeeded] : (state,action) => {
+        return({
+            ...state,
+            loading : false,
+            user_detail : action.payload.data.data,
+
+        })
+
+    },
+    [actions.getUserDetail.failed] : (state,action) => {
+        return({
+            ...state,
+            loading : false,
+            message : "Get user detail failed",
+            variant : "danger"
+        })
+    },
     [actions.forgot.requested] : (state,action) => {
         return({
             ...state,
