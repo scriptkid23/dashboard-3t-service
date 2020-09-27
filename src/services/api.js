@@ -25,9 +25,10 @@ const API = {
     CONFIRM_FORGOT_PASSWORD: {
         URI    : "api/forgot-password",
         METHOD : "PUT",
+    },
+    GET_USER_DETAIL :{
+        URI : "api/get-user-detail",
+        METHOD : "GET"
     }
-
-
-
 }
 export default API;

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Media,Image} from 'react-bootstrap'
 import {FontMontserrat} from '../../../styles/common/index'
-export default ({avatar,message,isOwn,own}) => {
+export default ({avatar,message,isOwn,own,fullname}) => {
    
     return(
         isOwn ? 
@@ -36,7 +36,7 @@ export default ({avatar,message,isOwn,own}) => {
                         <Image className="avatar-32"roundedCircle/> }
                         <Media.Body  className="media-body-customize is-other">
                             <FontMontserrat className="m-0 p-2 font-weight-bold message-own">
-                                {own}
+                                {fullname}
                             </FontMontserrat>
                             <FontMontserrat className="m-0 p-2 message-content">
                                 {value}

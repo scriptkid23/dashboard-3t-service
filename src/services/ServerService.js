@@ -77,8 +77,17 @@ function ConfirmRegister(params) {
     }).then(result => {return result})
     .catch(error => {return error.response})
 }
+function getUserDetail(token) {
+    return Axios({
+        baseURL : API.BASEURL,
+        method : "GET",
+        url : API.GET_USER_DETAIL.URI,
+        headers   : {
+            Authorization : "Bearer " + token
+        }
 
+    }).then(result => {return result})
+    .catch(error => {return error.response})
+}
 
-
-
-export {Login,Register,Logout,ForgotPassword,ConfirmRegister,ConfirmForgotPassword}
+export {Login,Register,Logout,ForgotPassword,ConfirmRegister,ConfirmForgotPassword, getUserDetail}

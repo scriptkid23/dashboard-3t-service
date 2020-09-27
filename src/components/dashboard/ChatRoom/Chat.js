@@ -5,7 +5,7 @@ import  MessageDemo from './message.json'
 import MessageList from './MessageList';
 import chatReducer,{defaultState} from './ChatReducer'
 import {db} from '../../../services/FirebaseService'
-export default ({roomName,roomID,own}) => {
+export default ({roomName,roomID,own,fullname}) => {
   const height = window.innerHeight;
   const [state,dispatch] = React.useReducer(chatReducer,defaultState)
   const elScroll = React.useRef(null);
@@ -41,10 +41,12 @@ export default ({roomName,roomID,own}) => {
       dispatch({
         type : "SET_MESSAGE",
         message : {
-          own : localStorage.getItem("email"),
+          own : own,
           avatar : "https://www.flaticon.com/svg/static/icons/svg/3468/3468075.svg",
           message : [e.target.value],
-          seenBy : [""]
+          seenBy : [""],
+          fullname : fullname
+        
         }
       })
   }
@@ -131,6 +133,7 @@ export default ({roomName,roomID,own}) => {
       <Card.Body className="card-body-customize" id="style-scroll" ref={elScroll}>
         <MessageList
           own = {own}
+          fullname = {fullname}
           messages={state.messages}
         />
       </Card.Body>
