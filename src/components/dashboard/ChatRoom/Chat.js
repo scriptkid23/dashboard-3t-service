@@ -76,7 +76,10 @@ export default ({roomName,roomID,own,fullname}) => {
 //  }
   const sendMessage = async (event) => {
     event.preventDefault();
-   try{
+    if(state.message.message.length === 0) {
+      return
+    }
+    try{
    
       if(state.messages.length === 0){
        await db.ref("chats").push({
