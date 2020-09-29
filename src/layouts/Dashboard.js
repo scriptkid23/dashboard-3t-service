@@ -6,8 +6,9 @@ import Navbar from '../components/dashboard/Navbar'
 import Sidebar from '../components/dashboard/Sidebar'
 import CookieService from '../services/CookieService'
 
+
 export default class Dashboard extends Component {
-  
+ 
     getRoutes = routes => {
     
         return routes.map((prop, key) => {
