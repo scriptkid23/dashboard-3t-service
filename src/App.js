@@ -11,6 +11,7 @@ function App() {
           <title>Nested Title</title>
           <meta name="description" content="Helmet application" />
           <meta property="og:type" content="article" />
+          <meta property="og:title" content="Nested Title" />
           <meta name="og:image" content={"https://www.flaticon.com/svg/static/icons/svg/3529/3529980.svg"} />
           <link rel="apple-touch-icon" href="https://www.flaticon.com/svg/static/icons/svg/3529/3529980.svg" />
           <link rel="apple-touch-icon" sizes="72x72" href="https://www.flaticon.com/svg/static/icons/svg/3529/3529980.svg" />
