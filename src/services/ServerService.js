@@ -1,7 +1,6 @@
 import Axios from 'axios';
 import API from './api'
 function Login(params) {
-    console.log(params)
     return Axios({
         baseURL: API.BASEURL,
         method : API.LOGIN.METHOD,
@@ -78,8 +77,17 @@ function ConfirmRegister(params) {
     }).then(result => {return result})
     .catch(error => {return error.response})
 }
+function getUserDetail(token) {
+    return Axios({
+        baseURL : API.BASEURL,
+        method : "GET",
+        url : API.GET_USER_DETAIL.URI,
+        headers   : {
+            Authorization : "Bearer " + token
+        }
 
+    }).then(result => {return result})
+    .catch(error => {return error.response})
+}
 
-
-
-export {Login,Register,Logout,ForgotPassword,ConfirmRegister,ConfirmForgotPassword}
+export {Login,Register,Logout,ForgotPassword,ConfirmRegister,ConfirmForgotPassword, getUserDetail}

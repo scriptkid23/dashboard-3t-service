@@ -1,6 +1,6 @@
 import {takeEvery,put,call,select} from 'redux-saga/effects';
 import {Login,ForgotPassword, ConfirmRegister,
-    ConfirmForgotPassword,Register,Logout} from '../../services/ServerService'
+    ConfirmForgotPassword,Register,Logout, getUserDetail} from '../../services/ServerService'
 import CookieService from '../../services/CookieService'
 const getAuthState = (state) => state.auth;
 function* loginRequested(params){
@@ -10,6 +10,7 @@ function* loginRequested(params){
         if(status === 200){
             yield put({type : "LOGIN/SUCCEEDED",payload : {data,status}})
             CookieService.set('token',data.token)
+            localStorage.setItem("email",data.email)
             params.payload.callback.push('/dashboard/chat-room')
         }
         else{
@@ -21,7 +22,7 @@ function* loginRequested(params){
 }
 function* forgotRequested(params) {
     try{
-        console.log(params)
+    
         let {data,status} = yield call(ForgotPassword,params.payload.email);
         if(status === 200){
             yield put({type:"FORGOT/SUCCEEDED",payload:{data,status}})
@@ -49,6 +50,7 @@ function* confirmRequested(params){
                 if(status === 200){
                     yield put({type:"CONFIRM/SUCCEEDED",payload:{data,status}})
                     CookieService.set('token',data.token)
+                    localStorage.setItem("email",data.email)
                     params.payload.callback.push('/dashboard/chat-room')
                 }
                 else{
@@ -108,10 +110,26 @@ function *logoutRequested(params){
         yield put({type : "LOGOUT/FAILED",payload : {data : {message : e}}})
     }
 }
+function* getUserDetailRequested() {
+    try{
+        const token = CookieService.get('token')
+        const {data,status} = yield call(getUserDetail,token);
+        if(status === 200){
+            yield put({type : "GET_USER_DETAIL/SUCCEEDED",payload :{data,status}})
+        }
+        else{
+            yield put({type : "GET_USER_DETAIL/FAILED",payload :{data,status}})
+        }
+    }
+    catch(e){
+        yield put({type : "GET_USER_DETAIL/FAILED",payload :{data : {message : e}}})
+    }
+}
 export default function* authSaga(){
     yield takeEvery("LOGIN/REQUESTED",loginRequested)
     yield takeEvery("LOGOUT/REQUESTED",logoutRequested)
     yield takeEvery("SIGNUP/REQUESTED",signupRequested)
     yield takeEvery("CONFIRM/REQUESTED",confirmRequested)
     yield takeEvery("FORGOT/REQUESTED",forgotRequested)
+    yield takeEvery("GET_USER_DETAIL/REQUESTED",getUserDetailRequested)
 }

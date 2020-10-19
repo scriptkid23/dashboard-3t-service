@@ -6,6 +6,7 @@ import {FontPoppins} from '../../styles/common/index'
 import {Slide} from 'react-awesome-reveal'
 import { useHistory } from "react-router-dom";
 import {useSelector,useDispatch} from 'react-redux'
+import Backdrop from '../../components/common/Backdrop'
 import * as authReducer from '../../redux/reducers/auth.reducer'
 export default function Signup() {
   const history = useHistory();
@@ -27,6 +28,7 @@ export default function Signup() {
   }
   return (
      <Container fluid>
+         {authStore.loading &&<Backdrop show={authStore.loading}/>}
          <Row className="vh-100">
             <Col xs={7} className="ttt-auth-content d-flex align-items-center">          
                      <img src={image.svg.logo} alt="" className="ttt-login-logo"/>

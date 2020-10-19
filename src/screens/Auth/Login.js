@@ -6,6 +6,8 @@ import {FontPoppins} from '../../styles/common/index'
 import {Slide} from 'react-awesome-reveal'
 import { useHistory } from "react-router-dom";
 import {useSelector,useDispatch} from 'react-redux'
+import {Helmet} from "react-helmet";
+import Backdrop from '../../components/common/Backdrop'
 import * as authReducer from '../../redux/reducers/auth.reducer'
 export default function Login() {
   const history = useHistory();
@@ -25,9 +27,14 @@ export default function Login() {
   }
   return (
      <Container fluid>
-     {authStore.loading && <div className="fade modal-backdrop show">
-
-     </div>}
+        <Helmet>
+            <title>Nested Title</title>
+            <meta name="description" content="Helmet application" />
+            <meta property="og:type" content="article" />
+            <link rel="apple-touch-icon" href="https://www.flaticon.com/svg/static/icons/svg/3529/3529980.svg" />
+            <link rel="apple-touch-icon" sizes="72x72" href="https://www.flaticon.com/svg/static/icons/svg/3529/3529980.svg" />
+        </Helmet>
+         {authStore.loading &&<Backdrop show={authStore.loading}/>}
          <Row className="vh-100">
             <Col xs={7} className="ttt-auth-content d-flex align-items-center">          
                      <img src={image.svg.logo} alt="" className="ttt-login-logo"/>
