@@ -6,7 +6,7 @@ import {FontPoppins} from '../../styles/common/index'
 import {Slide} from 'react-awesome-reveal'
 import { useHistory } from "react-router-dom";
 import {useSelector,useDispatch} from 'react-redux'
-
+import  Seo from '../../components/Seo'
 import Backdrop from '../../components/common/Backdrop'
 import * as authReducer from '../../redux/reducers/auth.reducer'
 export default function Login() {
@@ -27,7 +27,11 @@ export default function Login() {
   }
   return (
      <Container fluid>
-       
+         <Seo
+            title={"3T Service Login"}
+            description={ "Service login "}
+            image={"https://www.flaticon.com/svg/static/icons/svg/3533/3533601.svg"}
+         />
          {authStore.loading &&<Backdrop show={authStore.loading}/>}
          <Row className="vh-100">
             <Col xs={7} className="ttt-auth-content d-flex align-items-center">          
