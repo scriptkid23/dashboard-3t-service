@@ -10,7 +10,7 @@ function* loginRequested(params){
         if(status === 200){
             yield put({type : "LOGIN/SUCCEEDED",payload : {data,status}})
             CookieService.set('token',data.token)
-            localStorage.setItem("email",data.email)
+            // localStorage.setItem("email",data.email)
             params.payload.callback.push('/dashboard/chat-room')
         }
         else{
@@ -50,7 +50,7 @@ function* confirmRequested(params){
                 if(status === 200){
                     yield put({type:"CONFIRM/SUCCEEDED",payload:{data,status}})
                     CookieService.set('token',data.token)
-                    localStorage.setItem("email",data.email)
+                    // localStorage.setItem("email",data.email)
                     params.payload.callback.push('/dashboard/chat-room')
                 }
                 else{

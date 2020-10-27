@@ -2,7 +2,7 @@ export const defaultState = {
     messages : [],
     isTyping : false,
     message : {
-        own : localStorage.getItem("email"),
+        // own : localStorage.getItem("email"),
         message : "",
         avatar : "",
         seenBy : [""],
